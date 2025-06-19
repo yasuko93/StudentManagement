@@ -19,4 +19,9 @@ public class StudentManagementApplication {
 		return "Hello";
 	}
 
+	@GetMapping("0619test")
+	public String test() {
+		return "0619test";
+	}
+
 }
