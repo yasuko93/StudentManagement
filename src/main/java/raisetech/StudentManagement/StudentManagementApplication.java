@@ -14,6 +14,7 @@ public class StudentManagementApplication {
 	@Autowired
 	private StudentRepository repository;
 
+
 	private String name;
 	private String age;
 
@@ -21,15 +22,15 @@ public class StudentManagementApplication {
 		SpringApplication.run(StudentManagementApplication.class, args);
 	}
 
-	@GetMapping("/studentInfo")
-	public String getStudentInfo(){
-		return name + " " + age + "歳";
+	@GetMapping("/student")
+	public String getStudent(){
+		Student student = repository.searchByName("TanakaTarou");
+		return student.getName() + " " + student.getAge() + "歳";
 	}
 
-	@PostMapping("/studentInfo")
-	public void setStudentInfo(String name, String age){
-		this.name = name;
-		this.age = age;
+	@PostMapping("/student")
+	public void registerStudent(String name, int age){
+		repository.registerStudent(name, age);
 	}
 
 	@PostMapping("/studentName")
