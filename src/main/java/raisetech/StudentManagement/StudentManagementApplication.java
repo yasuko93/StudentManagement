@@ -1,5 +1,6 @@
 package raisetech.StudentManagement;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,8 +27,7 @@ public class StudentManagementApplication {
 	}
 
 	@GetMapping("/student")
-	public String getStudent(@RequestParam String name){
-			Student student = repository.searchByName(name);
-			return student.getName() + " " + student.getAge() + "歳";
+	public List<Student> getStudentList(@RequestParam String name){
+		return repository.searchByName(name);
 	}
 }
