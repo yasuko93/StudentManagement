@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter //コンパイル時にランボックが自動でゲッターセッターを生成してくれる
+@Setter //ランボックが自動でゲッターセッターを生成してくれる(下にずらずら書かなくていい)
 public class Student {
 
   private int id;
