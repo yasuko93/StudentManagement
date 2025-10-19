@@ -9,8 +9,10 @@ public class StudentCourses {
 
   private int id;
   private int studentId;
-  private String courses;
+  private String course;
   private String startDatetime;
   private String completionDatetime;
+
+
 
 }
