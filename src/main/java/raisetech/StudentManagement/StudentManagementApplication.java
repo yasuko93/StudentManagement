@@ -13,6 +13,7 @@ public class StudentManagementApplication {
 
 	@Autowired
 	private StudentRepository repository;
+	@Autowired
 	private StudentCoursesRepository repository2;
 
 
@@ -29,8 +30,8 @@ public class StudentManagementApplication {
 	}
 
 	@GetMapping("/studentCourses")
-	public int getStudentCourses(){
-		StudentCourses studentCourses = repository2.searchById(1);
-		return studentCourses.getStudentId();
+	public String getStudentCourses(){
+		StudentCourses studentCourses = repository2.searchById(6);
+		return studentCourses.getCourse();
 	}
 }
