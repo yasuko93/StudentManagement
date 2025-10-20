@@ -31,7 +31,7 @@ public class StudentManagementApplication {
 	}
 
 	@GetMapping("/studentCourses")
-	public List<StudentCourses> getStudentCoursesList(int id){
-		return repository2.searchById(id);
+	public List<StudentCourses> getStudentCoursesList(){
+		return repository2.search();
 	}
 }
