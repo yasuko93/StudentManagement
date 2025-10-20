@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -30,8 +31,7 @@ public class StudentManagementApplication {
 	}
 
 	@GetMapping("/studentCourses")
-	public String getStudentCourses(){
-		StudentCourses studentCourses = repository2.searchById(6);
-		return studentCourses.getCourse();
+	public List<StudentCourses> getStudentCoursesList(int id){
+		return repository2.searchById(id);
 	}
 }
