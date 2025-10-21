@@ -8,5 +8,5 @@ import org.apache.ibatis.annotations.Select;
 public interface StudentsRepository {
 
   @Select("SELECT * FROM students")
-  List<Students> search(); //nameに合致するstudentsをリストで返す
+  List<Students> searchStudents(); //nameに合致するstudentsをリストで返す
 }
