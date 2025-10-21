@@ -5,9 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface StudentCoursesRepository {
+public interface StudentsRepository {
 
-  @Select("SELECT * FROM students_courses")
-  List<StudentCourses> search();
-
+  @Select("SELECT * FROM students")
+  List<Students> search(); //nameに合致するstudentsをリストで返す
 }
