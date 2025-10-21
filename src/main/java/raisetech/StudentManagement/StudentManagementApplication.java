@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentManagementApplication {
 
   @Autowired
-  private StudentsRepository repository;
+  private StudentsRepository studentsRepository;
   @Autowired
-  private StudentsCoursesRepository repository2;
+  private StudentsCoursesRepository studentsCoursesRepository;
 
 
   private String name;
@@ -26,11 +26,11 @@ public class StudentManagementApplication {
 
   @GetMapping("/studentList")
   public List<Students> getStudentList() {
-    return repository.searchStudents();
+    return studentsRepository.searchStudents();
   }
 
   @GetMapping("/studentCoursesList")
   public List<StudentsCourses> getStudentCoursesList() {
-    return repository2.searchStudentsCourses();
+    return studentsCoursesRepository.searchStudentsCourses();
   }
 }
