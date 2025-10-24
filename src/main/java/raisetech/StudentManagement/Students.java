@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter //ランボックが自動でゲッターセッターを生成してくれる(下にずらずら書かなくていい)
-public class Student {
+public class Students {
 
   private int id;
   private String name;
@@ -15,4 +15,5 @@ public class Student {
   private String area;
   private int age;
   private String sex;
+
 }

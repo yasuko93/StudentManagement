@@ -5,14 +5,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class StudentCourses {
+public class StudentsCourses {
 
   private int id;
   private int studentId;
-  private String course;
-  private String startDatetime;
-  private String completionDatetime;
-
-
+  private String courseName;
+  private String courseStartAt;
+  private String courseEndAt;
 
 }
