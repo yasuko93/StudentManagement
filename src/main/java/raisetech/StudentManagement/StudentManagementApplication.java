@@ -17,8 +17,6 @@ public class StudentManagementApplication {
   private StudentsCoursesRepository studentsCoursesRepository;
 
 
-  private String name;
-  private String age;
 
   public static void main(String[] args) {
     SpringApplication.run(StudentManagementApplication.class, args);
