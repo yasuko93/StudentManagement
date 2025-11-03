@@ -13,12 +13,6 @@ public class StudentManagementApplication {
 
   @Autowired
   private StudentsRepository studentsRepository;
-  @Autowired
-  private StudentsCoursesRepository studentsCoursesRepository;
-
-
-  private String name;
-  private String age;
 
   public static void main(String[] args) {
     SpringApplication.run(StudentManagementApplication.class, args);
@@ -31,6 +25,6 @@ public class StudentManagementApplication {
 
   @GetMapping("/studentsCoursesList")
   public List<StudentsCourses> getStudentCoursesList() {
-    return studentsCoursesRepository.searchStudentsCourses();
+    return studentsRepository.searchStudentsCourses();
   }
 }

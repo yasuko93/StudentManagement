@@ -9,4 +9,7 @@ public interface StudentsRepository {
 
   @Select("SELECT * FROM students")
   List<Students> searchStudents(); //nameに合致するstudentsをリストで返す
+
+  @Select("SELECT * FROM students_courses")
+  List<StudentsCourses> searchStudentsCourses();
 }
