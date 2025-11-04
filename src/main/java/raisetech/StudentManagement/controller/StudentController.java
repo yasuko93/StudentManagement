@@ -12,22 +12,22 @@ import raisetech.StudentManagement.service.StudentService;
 
 public class StudentController {
 
-  private StudentService studentService;
+  private StudentService service;
 
   @Autowired
-    public StudentController(StudentService studentService) {
-    this.studentService = studentService;
+  public StudentController(StudentService service) {
+    this.service = service;
   }
 
 
   @GetMapping("/studentsList")
   public List<Students> getStudentList() {
-    return studentService.searchStudentList();
+    return service.searchStudentList();
   }
 
   @GetMapping("/studentsCoursesList")
   public List<StudentsCourses> getStudentCoursesList() {
-    return studentService.searchStudentCoursesList();
+    return service.searchStudentCoursesList();
   }
 
 }
