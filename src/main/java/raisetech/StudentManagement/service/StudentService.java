@@ -20,11 +20,11 @@ public class StudentService {
   }
 
   //controllerに書いていたメソッドを移動（責務を分ける）
-  public List<Students> getStudentList() {
+  public List<Students> searchStudentList() {
     return repository.searchStudents();
   }
 
-  public List<StudentsCourses> getStudentCoursesList() {
+  public List<StudentsCourses> searchStudentCoursesList() {
     return repository.searchStudentsCourses();
   }
 }
