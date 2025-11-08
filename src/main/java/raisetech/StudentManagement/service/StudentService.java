@@ -37,6 +37,16 @@ public class StudentService {
   }
 
   public List<StudentsCourses> searchStudentCoursesList() {
-    return repository.searchStudentsCourses();
+
+    List<StudentsCourses> filterStudentCoursesList = repository.searchStudentsCourses();
+
+    List<StudentsCourses> courseFilterList = new ArrayList<>();
+
+    for (StudentsCourses c : filterStudentCoursesList){
+      if (c.getCourseName().equals("Java")){
+        courseFilterList.add(c);
+      }
+    }
+    return courseFilterList;
   }
 }
