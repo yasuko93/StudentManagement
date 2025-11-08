@@ -1,5 +1,6 @@
 package raisetech.StudentManagement.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,19 @@ public class StudentService {
   }
 
   //controllerに書いていたメソッドを移動（責務を分ける）
+
   public List<Students> searchStudentList() {
-    return repository.searchStudents();
+
+    List<Students> filterStudentList = repository.searchStudents();
+
+    List<Students> ageFilterList = new ArrayList<>();
+
+    for (Students s : filterStudentList){
+      if (s.getAge() >= 30 && s.getAge() <40){
+        ageFilterList.add(s);
+      }
+    }
+    return ageFilterList;
   }
 
   public List<StudentsCourses> searchStudentCoursesList() {
