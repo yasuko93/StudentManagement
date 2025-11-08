@@ -2,6 +2,7 @@ package raisetech.StudentManagement.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,24 +26,21 @@ public class StudentController {
   @GetMapping("/studentsList")
   public List<StudentDetail> getStudentList() {
 
-    List<Students> students = service.searchStudentList(); //②Serviceから取れたリストをstudentsに入れる
-    List<StudentsCourses> studentsCourses = service.searchStudentCoursesList(); //⑥Serviceから取れたリストをstudentsCoursesに入れる
-    List<StudentDetail> studentDetails = new ArrayList<>(); //①ループの結果を入れるリストを準備
+    List<Students> students = service.searchStudentList();
+    List<StudentsCourses> studentsCourses = service.searchStudentCoursesList();
 
-    for (Students s : students){ //③studentsを全件ループで回す（まず1人目の「田中太郎」がsに入ってくる）
-      StudentDetail studentDetail = new StudentDetail(); //④studentDetailのインスタンスを生成
-      studentDetail.setStudents(s); //⑤studentDetailにStudentsを順に設定（「田中太郎」～）
+    List<StudentDetail> studentDetails = new ArrayList<>();
+    students.forEach(s -> {
+      StudentDetail studentDetail = new StudentDetail();
+      studentDetail.setStudents(s);
 
-      List<StudentsCourses> convertStudentCourses = new ArrayList<>(); //⑦ループ（⑧）の結果を入れるリストを準備
-      for (StudentsCourses c : studentsCourses){ //⑧studentsCoursesを全件ループで回す（ループの中でループ）
-        if (s.getId() == c.getStudentId()){
-          convertStudentCourses.add(c); //⑨受講生idと一致するコース情報（1:N）を⑦で用意したリストに順に追加
-        }
-      }
+      List<StudentsCourses> convertStudentCourses = studentsCourses.stream()
+          .filter(c -> s.getId() == c.getStudentId())
+          .collect(Collectors.toList());
 
-      studentDetail.setStudentsCourses(convertStudentCourses); //⑩studentDetailにコース⑨を設定）
-      studentDetails.add(studentDetail); //⑪リスト①に、Students⑤とコースリスト⑩の入ったstudentDetailを追加
-    }
+      studentDetail.setStudentsCourses(convertStudentCourses);
+      studentDetails.add(studentDetail);
+    });
     return studentDetails;
   }
 
