@@ -29,6 +29,11 @@ public class StudentController {
     List<Students> students = service.searchStudentList();
     List<StudentsCourses> studentsCourses = service.searchStudentCoursesList();
 
+    return convertStudentDetails(students, studentsCourses);
+  }
+
+  private List<StudentDetail> convertStudentDetails(List<Students> students,
+      List<StudentsCourses> studentsCourses) {
     List<StudentDetail> studentDetails = new ArrayList<>();
     students.forEach(s -> {
       StudentDetail studentDetail = new StudentDetail();
