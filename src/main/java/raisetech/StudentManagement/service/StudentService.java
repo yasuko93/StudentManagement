@@ -23,30 +23,10 @@ public class StudentService {
   //controllerに書いていたメソッドを移動（責務を分ける）
 
   public List<Students> searchStudentList() {
-
-    List<Students> filterStudentList = repository.searchStudents();
-
-    List<Students> ageFilterList = new ArrayList<>();
-
-    for (Students s : filterStudentList){
-      if (s.getAge() >= 30 && s.getAge() <40){
-        ageFilterList.add(s);
-      }
-    }
-    return ageFilterList;
+    return repository.searchStudents();
   }
 
   public List<StudentsCourses> searchStudentCoursesList() {
-
-    List<StudentsCourses> filterStudentCoursesList = repository.searchStudentsCourses();
-
-    List<StudentsCourses> courseFilterList = new ArrayList<>();
-
-    for (StudentsCourses c : filterStudentCoursesList){
-      if (c.getCourseName().equals("Java")){
-        courseFilterList.add(c);
-      }
-    }
-    return courseFilterList;
+    return repository.searchStudentsCourses();
   }
 }
