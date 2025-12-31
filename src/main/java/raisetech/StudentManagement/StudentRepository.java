@@ -1,17 +1,20 @@
 package raisetech.StudentManagement;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
+import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface StudentRepository {
 
-  @Select("SELECT * FROM student WHERE name = #{name}")
-  Student searchByName(String name);
+  @Select("SELECT * FROM students")
+  List<Student> searchStudent();
 
+  @Select("SELECT * FROM students_courses")
+  List<StudentCourse> searchStudentCourse();
+
+
+  /*
   @Insert("INSERT INTO student VALUES(#{name}, #{age})")
   void registerStudent(String name, int age);
 
@@ -20,5 +23,7 @@ public interface StudentRepository {
 
   @Delete("DELETE FROM student WHERE name = #{name}")
   void deleteStudent(String name);
+
+   */
 }
 
