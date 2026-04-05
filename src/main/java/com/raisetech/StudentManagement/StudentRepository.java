@@ -1,5 +1,7 @@
 package com.raisetech.StudentManagement;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -9,8 +11,8 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface StudentRepository {
 
-  @Select("SELECT * FROM student WHERE name = #{name}")
-  Student searchByName(String name);
+  @Select("SELECT * FROM students")
+  List<Student> search();
 
   @Insert("INSERT INTO student VALUES(#{name}, #{age})")
   void registerStudent(String name, int age);
