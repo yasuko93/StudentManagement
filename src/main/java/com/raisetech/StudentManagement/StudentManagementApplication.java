@@ -26,6 +26,11 @@ public class StudentManagementApplication {
 		return repository.search();
 	}
 
+	@GetMapping("/studentCourseList")
+	public List<StudentCourse> getStudentCourseList(){
+		return repository.searchCourse();
+	}
+
 	@PostMapping("/student")
 	public void registerStudent(String name,int age){
 		repository.registerStudent(name, age);
