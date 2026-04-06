@@ -1,13 +1,10 @@
 package com.raisetech.StudentManagement.repository;
 
-import com.raisetech.StudentManagement.Student;
-import com.raisetech.StudentManagement.StudentCourse;
+import com.raisetech.StudentManagement.data.Student;
+import com.raisetech.StudentManagement.data.StudentCourse;
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface StudentRepository {
