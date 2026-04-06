@@ -1,9 +1,8 @@
-package com.raisetech.StudentManagement;
+package com.raisetech.StudentManagement.data;
 
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.ibatis.annotations.Select;
 
 @Getter
 @Setter
