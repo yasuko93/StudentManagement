@@ -1,5 +1,6 @@
 package com.raisetech.StudentManagement;
 
+import com.raisetech.StudentManagement.repository.StudentRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

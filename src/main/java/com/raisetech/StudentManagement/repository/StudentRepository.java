@@ -1,6 +1,7 @@
-package com.raisetech.StudentManagement;
+package com.raisetech.StudentManagement.repository;
 
-import java.util.ArrayList;
+import com.raisetech.StudentManagement.Student;
+import com.raisetech.StudentManagement.StudentCourse;
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
