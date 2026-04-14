@@ -18,23 +18,11 @@ public class StudentService {
   }
 
   public List<Student> searchStudentList(){
-    List<Student> studentList = new ArrayList<>();
-    for (Student s : repository.search()){
-      if (s.getAge()>=30){
-        studentList.add(s);
-      }
-    }
-    return studentList;
+    return repository.search();
   }
 
   public List<StudentCourse> searchStudentCourseList(){
-    List<StudentCourse> studentCourses = new ArrayList<>();
-    for (StudentCourse c : repository.searchCourse()){
-      if (c.getCourseName().equals("Java")){
-        studentCourses.add(c);
-      }
-    }
-    return  studentCourses;
+    return repository.searchCourse();
   }
 
 
