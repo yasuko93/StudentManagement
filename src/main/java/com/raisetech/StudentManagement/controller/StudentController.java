@@ -8,10 +8,12 @@ import com.raisetech.StudentManagement.service.StudentService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 
 public class StudentController {
 
@@ -25,12 +27,14 @@ public class StudentController {
   }
 
   @GetMapping("/studentList")
-  public List<StudentDetail> getStudentDetail(){
+  public String getStudentList(Model model){ //①戻り値を文字列に　②model（HTMLとControllerの間にいるヤツ）を受け取る
     List<Student> students = service.searchStudentList();
     List<StudentCourse> studentCourses = service.searchStudentCourseList();
 
-    return converter.convertStudentDetails(
-        students, studentCourses);
+    model.addAttribute
+        ("studentList",converter.convertStudentDetails(
+        students, studentCourses)); //③「HTMLの${studentList}イコール"converter.~略"ですよ」と定義
+    return "studentList"; //④HTMLファイルを返却
   }
 
 
