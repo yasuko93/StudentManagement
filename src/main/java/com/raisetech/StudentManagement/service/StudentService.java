@@ -2,6 +2,7 @@ package com.raisetech.StudentManagement.service;
 
 import com.raisetech.StudentManagement.data.Student;
 import com.raisetech.StudentManagement.data.StudentCourse;
+import com.raisetech.StudentManagement.domain.StudentDetail;
 import com.raisetech.StudentManagement.repository.StudentRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,9 @@ public class StudentService {
     return repository.searchCourse();
   }
 
+  public void registerStudent(StudentDetail studentDetail){
+    repository.register(studentDetail);
+  }
 
 
 }
