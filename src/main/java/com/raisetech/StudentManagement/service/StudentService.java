@@ -37,6 +37,7 @@ public class StudentService {
       studentCourse.setCourseStartAt(LocalDateTime.now());
       studentCourse.setCourseEndAt(LocalDateTime.now().plusYears(1));
       repository.registerStudentCourses(studentCourse);
+
     }
   }
 }
