@@ -2,6 +2,7 @@ package com.raisetech.StudentManagement.repository;
 
 import com.raisetech.StudentManagement.data.Student;
 import com.raisetech.StudentManagement.data.StudentCourse;
+import com.raisetech.StudentManagement.domain.StudentDetail;
 import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
