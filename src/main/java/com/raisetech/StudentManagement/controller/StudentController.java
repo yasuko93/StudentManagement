@@ -6,6 +6,7 @@ import com.raisetech.StudentManagement.data.StudentCourse;
 import com.raisetech.StudentManagement.domain.StudentDetail;
 import com.raisetech.StudentManagement.service.StudentService;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,7 +50,9 @@ public class StudentController {
 
   @GetMapping("/newStudent")
   public String newStudent(Model model){
-    model.addAttribute("studentDetail", new StudentDetail());
+    StudentDetail studentDetail = new StudentDetail();
+    studentDetail.setStudentCourses(Arrays.asList(new StudentCourse()));
+    model.addAttribute("studentDetail", studentDetail);
     return "registerStudent";
   }
 
@@ -60,6 +63,7 @@ public class StudentController {
     }
     service.registerStudent(studentDetail);
     //　新規受講生情報を登録する処理を実装する。
+    service.registerStudent(studentDetail);
     //　コース情報も一緒に登録できるように実装する。コースは単体でいい。
     return "redirect:/studentList";
 
