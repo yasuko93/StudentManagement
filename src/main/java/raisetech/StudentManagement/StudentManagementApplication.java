@@ -23,6 +23,11 @@ public class StudentManagementApplication {
 		return repository.search();
 	}
 
+	@GetMapping("/studentsCourseList")
+	public List<StudentsCourses> getStudentsCourseList(){
+		return repository.searchStudentsCourses();
+	}
+
 	/*
 	@PostMapping("/student")
 	public void registerStudent(String name, int age){
