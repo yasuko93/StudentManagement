@@ -15,16 +15,4 @@ public interface StudentRepository {
   @Select("SELECT * FROM students_courses")
   List<StudentsCourses> searchStudentsCourses();
 
-  /*
-
-  @Insert("INSERT students values(#{name}, #{age})")
-  void registerStudent(String name, int age);
-
-  @Update("UPDATE students SET age = #{age} WHERE name = #{name}")
-  void updateStudent(String name, int age);
-
-  @Delete("DELETE FROM students WHERE name = #{name}")
-  void deleteStudent(String name);
-
-   */
 }
